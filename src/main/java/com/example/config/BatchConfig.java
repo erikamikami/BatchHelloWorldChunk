@@ -45,7 +45,7 @@ public class BatchConfig {
 	@Bean
 	public Step chunkStep() {
 		return stepBuilderFactory.get("HelloCunkStep")
-								.<String, String>chunk(3) // <Input, Output> 引数は1度に処理する件数
+								.<String, String>chunk(1) // <Input, Output> 引数は1度に処理する件数
 								.reader(helloReader)
 								.processor(helloProcessor)
 								.writer(helloWriter)
@@ -62,7 +62,5 @@ public class BatchConfig {
 								.listener(jobListener)
 								.build();
 	}
-	
-	
 
 }
